@@ -36,6 +36,13 @@ class OrdersController < ApplicationController
      @order = Order.find(params[:id])
  end
  
+ def destroy
+     @order = Order.find(params[:id])
+     @order.destroy
+     flash[:notice] = "Order item was removed from history"
+     redirect_to order_path(@order)
+ end
+ 
  private
   def order_params
    params.require(:order).permit(:item, :drink, :room, :description)
