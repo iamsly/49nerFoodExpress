@@ -1,0 +1,36 @@
+<!-- this is to stop the redundancy in the edit and new html files
+this file will have the code that is needed for both the edit and new html-->
+<!--the following will be sent to the new.htmlerb and the edit.html.erb-->
+
+<% if @order.errors.any? %>
+<h2>The following errors prevented the order from getting created</h2>
+<ul>
+ <% @order.errors.full_messages.each do |msg| %>
+ <li><%= msg %></li>
+ <% end %>
+</ul>
+<% end %>
+
+<%= form_for @order do |f| %>
+ <p>
+  <%= f.label :item %><br/>
+  <%= f.text_field :item %>
+ </p>
+ <p>
+  <%= f.label :drink %><br/>
+  <%= f.text_field :drink %>
+ </p>
+ <p>
+  <%= f.label :room %><br/>
+  <%= f.text_field :room %>
+ </p>
+ <p>
+  <%= f.label :description %><br/>
+  <%= f.text_area :description %>
+ </p>
+ <p>
+  <%= f.submit %>
+ </p>
+<% end %>
+
+<%= link_to "Back to order history", orders_path %>
