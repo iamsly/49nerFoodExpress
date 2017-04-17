@@ -15,3 +15,6 @@
 <p>
  Description: <%= @order.description %>
 </p>
+
+<%= link_to "Edit this order", edit_order_path(@order) %>
+<%= link_to "Back to order history", orders_path %>

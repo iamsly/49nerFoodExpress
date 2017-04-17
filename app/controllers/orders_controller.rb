@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+ 
+ def index
+     @orders = Order.all #getting all the orders tha was created '@orders' can be any name
+ end
+ 
  def new
      @order = Order.new
  end

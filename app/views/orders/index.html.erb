@@ -1,0 +1,23 @@
+<h1>Listing all orders</h1>
+<p>
+ <%= link_to "Create new article", new_order_path %>
+</p>
+<table>
+ <tr>
+  <th>Item</th>
+  <th>Drink</th>
+  <th>Room</th>
+  <th>Description</th>
+ </tr>
+ 
+ <% @orders.each do |order| %>
+ <tr>
+  <td><%= order.item %></td>
+  <td><%= order.drink %></td>
+  <td><%= order.room %></td>
+  <td><%= order.description %></td>
+  <td><%= link_to 'Edit', edit_order_path(order) %></td>
+  <td><%= link_to 'Show', order_path(order) %></td>
+ </tr>
+ <% end %>
+</table>
