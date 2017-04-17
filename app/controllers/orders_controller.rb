@@ -7,6 +7,16 @@ class OrdersController < ApplicationController
      @order = Order.find(params[:id])
  end
  
+ def update
+     @order = Order.find(params[:id])
+     if @order.update(order_params)
+          flash[:notice] = "Order was successfully updated"
+          redirect_to order_path(@order)
+     else
+         render 'edit'
+     end
+ end
+ 
  def create
     @order = Order.new(order_params)
     if @order.save
@@ -23,7 +33,7 @@ class OrdersController < ApplicationController
  
  private
   def order_params
-   params.require(:order).permit(:title, :drink, :room, :description)
+   params.require(:order).permit(:item, :drink, :room, :description)
   end
  
 end
