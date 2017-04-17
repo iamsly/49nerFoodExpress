@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+ before_action :set_order, only: [:edit, :update, :show, :destroy]
  
  def index
      @orders = Order.all #getting all the orders tha was created '@orders' can be any name
@@ -9,11 +10,11 @@ class OrdersController < ApplicationController
  end
  
  def edit
-     @order = Order.find(params[:id])
+     
  end
  
  def update
-     @order = Order.find(params[:id])
+     
      if @order.update(order_params)
           flash[:notice] = "Order was successfully updated"
           redirect_to order_path(@order)
@@ -33,17 +34,20 @@ class OrdersController < ApplicationController
  end
  
  def show
-     @order = Order.find(params[:id])
+    
  end
  
  def destroy
-     @order = Order.find(params[:id])
+     
      @order.destroy
      flash[:notice] = "Order item was removed from history"
      redirect_to order_path(@order)
  end
  
  private
+ def set_order
+     @order = Order.find(params[:id])
+ end
   def order_params
    params.require(:order).permit(:item, :drink, :room, :description)
   end
