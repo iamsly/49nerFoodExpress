@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
      
      @order.destroy
      flash[:notice] = "Order item was removed from history"
-     redirect_to order_path(@order)
+     redirect_to orders_path(@order)
  end
  
  private
