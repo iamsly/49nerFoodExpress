@@ -2,14 +2,7 @@
 this file will have the code that is needed for both the edit and new html-->
 <!--the following will be sent to the new.htmlerb and the edit.html.erb-->
 
-<% if @order.errors.any? %>
-<h2>The following errors prevented the order from getting created</h2>
-<ul>
- <% @order.errors.full_messages.each do |msg| %>
- <li><%= msg %></li>
- <% end %>
-</ul>
-<% end %>
+<%= render 'shared/errors', obj: @order %>
 
 <div class='row'>
   <div class='col-xs-12'>
@@ -18,7 +11,7 @@ this file will have the code that is needed for both the edit and new html-->
      <div class="control-label col-sm-2">
       <%= f.label :item %>
      </div>
-     <div class="col-sm-3">
+     <div class="col-sm-8">
       <%= f.text_field :item, class: "form-control", placeholder: "Order item", autofocus: true %>
      </div>
     </div>
@@ -27,7 +20,7 @@ this file will have the code that is needed for both the edit and new html-->
      <div class="control-label col-sm-2">
       <%= f.label :drink %>
      </div>
-     <div class="col-sm-3">
+     <div class="col-sm-8">
       <%= f.text_field :drink, class: "form-control", placeholder: "Drink", autofocus: true %>
      </div>
     </div>
@@ -36,7 +29,7 @@ this file will have the code that is needed for both the edit and new html-->
      <div class="control-label col-sm-2">
       <%= f.label :room %>
      </div>
-     <div class="col-sm-3">
+     <div class="col-sm-8">
       <%= f.text_field :room, class: "form-control", placeholder: "Room number", autofocus: true %>
      </div>
     </div>
@@ -45,7 +38,7 @@ this file will have the code that is needed for both the edit and new html-->
      <div class="control-label col-sm-2">
       <%= f.label :description %>
      </div>
-     <div class="col-sm-3">
+     <div class="col-sm-8">
       <%= f.text_area :description, class: "form-control", placeholder: "Add description", autofocus: true %>
      </div>
     </div>
