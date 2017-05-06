@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
  
  def create
     @order = Order.new(order_params)
+    @order.user = User.first
     if @order.save
          flash[:success] = "Order was successfully created"
          redirect_to order_path(@order)
