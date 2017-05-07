@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
  before_action :set_order, only: [:edit, :update, :show, :destroy]
  
  def index
-     @orders = Order.all #getting all the orders tha was created '@orders' can be any name
+     @orders = Order.all
  end
  
  def new
