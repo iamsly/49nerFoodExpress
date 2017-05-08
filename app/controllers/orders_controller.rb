@@ -57,7 +57,7 @@ private
  end
   
  def require_same_user
-  if current_user != @order.user
+  if current_user != @order.user and !current_user.admin?
    flash[:danger] = "You can only edit or delete your own orders"
    redirect_to root_path
   end

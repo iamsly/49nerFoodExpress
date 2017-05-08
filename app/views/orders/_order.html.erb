@@ -13,7 +13,7 @@
              last updated: <%= time_ago_in_words(order.updated_at) %> ago</small>
       </div>
      </div>
-      <% if logged_in? && current_user == order.user %>
+      <% if logged_in? && (current_user == order.user || current_user.admin?) %>
         <div class="order-actions">
          <%= link_to "Edit this order", edit_order_path(order), class: "btn btn-xs btn-primary" %>
          <%= link_to "Delete this order", order_path(order), method: :delete,
